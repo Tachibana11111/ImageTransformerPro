@@ -136,8 +136,8 @@ git clone https://github.com/Tachibana11111/ImageTransformerPro.git
 cd ImageTransformerPro
 
 # Create virtual environment
-python -m venv venv
-venv\Scripts\activate
+python -m venv venv312
+.\venv312\Scripts\activate
 
 # Install dependencies
 pip install -r requirements.txt
