@@ -17,8 +17,8 @@
 
 | Type | Download | Size | Description |
 |------|----------|------|-------------|
-| 🎁 **Installer** | [Download](https://github.com/Tachibana11111/ImageTransformerPro/releases/download/v1.0.0/ImageTransformerPro_Setup_v1.0.0.exe) | ~200MB | **Recommended** - Easy installation |
-| 📦 **Portable** | [Download](https://github.com/Tachibana11111/ImageTransformerPro/releases/download/v1.0.0/ImageTransformerPro_Portable_v1.0.0.zip) | ~200MB | No installation needed |
+| 🎁 **Installer** | [Download](https://github.com/Tachibana11111/ImageTransformerPro/releases/download/v1.0.0/ImageTransformerPro_Setup_v1.0.0.exe) | ~100MB | **Recommended** - Easy installation |
+| 📦 **Portable** | [Download](https://github.com/Tachibana11111/ImageTransformerPro/releases/download/v1.0.0/ImageTransformerPro.Portable.v1.0.0.zip) | ~100MB | No installation needed |
 
 [📋 View All Releases](https://github.com/Tachibana11111/ImageTransformerPro/releases) | [📖 User Guide](docs/user_guide.md) | [👨‍💻 Developer Guide](docs/developer_guide.md)
 
