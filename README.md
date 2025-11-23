@@ -7,7 +7,7 @@
 ![Downloads](https://img.shields.io/github/downloads/Tachibana11111/ImageTransformerPro/total)
 ![Stars](https://img.shields.io/github/stars/Tachibana11111/ImageTransformerPro)
 
-**Professional image editing software with modern GUI - Phần mềm chỉnh sửa ảnh chuyên nghiệp với giao diện hiện đại**
+**Professional image editing software with modern GUI**
 
 ---
 
