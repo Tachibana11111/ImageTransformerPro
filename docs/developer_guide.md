@@ -41,13 +41,13 @@ cd ImageTransformerPro
 
 ```bash
 # Create venv
-python -m venv venv
+python -m venv venv312
 
 # Activate (Windows)
-venv\Scripts\activate
+.\venv312\Scripts\activate
 
 # Activate (Linux/Mac)
-source venv/bin/activate
+source venv312/bin/activate
 ```
 
 ### Install Dependencies
