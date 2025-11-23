@@ -1,0 +1,60 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*'  
+  workflow_dispatch:  
+
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pyinstaller
+    
+    - name: Build EXE
+      run: |
+        pyinstaller --onefile --windowed --icon=assets/icon.ico app_gui.py
+        Rename-Item -Path "dist\app_gui.exe" -NewName "ImageTransformer.exe"
+    
+    - name: Create Portable ZIP
+      run: |
+        $version = "${{ github.ref_name }}".TrimStart('v')
+        $folderName = "ImageTransformer_Portable_v$version"
+        New-Item -ItemType Directory -Path $folderName
+        Copy-Item "dist\ImageTransformer.exe" -Destination $folderName
+        Copy-Item "README.md" -Destination $folderName
+        Copy-Item "LICENSE" -Destination $folderName
+        Compress-Archive -Path $folderName -DestinationPath "$folderName.zip"
+    
+    - name: Calculate checksums
+      run: |
+        $version = "${{ github.ref_name }}".TrimStart('v')
+        $zipFile = "ImageTransformer_Portable_v$version.zip"
+        $hash = (Get-FileHash $zipFile -Algorithm SHA256).Hash
+        "$zipFile`nSHA256: $hash" | Out-File -FilePath "checksums.txt"
+    
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: |
+          ImageTransformer_Portable_*.zip
+          checksums.txt
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
