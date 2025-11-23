@@ -27,7 +27,7 @@ jobs:
     
     - name: Build EXE
       run: |
-        pyinstaller --onefile --windowed --icon=assets/icon.ico app_gui.py
+        pyinstaller --onefile --windowed --icon=assets/logo.ico app_gui.py
         Rename-Item -Path "dist\app_gui.exe" -NewName "ImageTransformer.exe"
     
     - name: Create Portable ZIP
